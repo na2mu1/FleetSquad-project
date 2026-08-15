@@ -1,0 +1,73 @@
+:root {
+  /* Premium palette — deep space background, electric blue + violet accent,
+     restrained success/danger so money/status colors stay meaningful. */
+  --accent: #2081E2;
+  --accent-2: #7C5CFF;
+  --accent-grad: linear-gradient(135deg, #2081E2 0%, #7C5CFF 100%);
+  --accent-hover: #3B93F0;
+  --success: #1FCE83;
+  --danger: #F5455C;
+  --warn: #F0A94F;
+
+  --bg: #07080D;
+  --bg-elevated: #0D0F17;
+  --surface: #12141D;
+  --surface-2: #171A25;
+  --border: #23273580;
+  --border-strong: #2E3346;
+  --text: #F5F6FA;
+  --text-dim: #9BA0B4;
+  --text-faint: #666B80;
+
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 2px 8px rgba(0,0,0,.25);
+  --shadow-md: 0 12px 32px -8px rgba(0,0,0,.5);
+  --shadow-lg: 0 24px 60px -16px rgba(0,0,0,.65);
+  --shadow-glow: 0 0 0 1px rgba(32,129,226,.25), 0 12px 40px -12px rgba(32,129,226,.35);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html, body {
+  padding: 0; margin: 0;
+  background:
+    radial-gradient(1000px 500px at 15% -10%, rgba(32,129,226,.08), transparent 60%),
+    radial-gradient(900px 500px at 100% 0%, rgba(124,92,255,.06), transparent 55%),
+    var(--bg);
+  background-attachment: fixed;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  font-family: var(--font-main), 'Segoe UI', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.01em;
+}
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+img, video { max-width: 100%; }
+input, select, textarea { font-family: inherit; }
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; }
+::selection { background: var(--accent); color: #fff; }
+
+/* Smooth scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
+
+/* Page-level fade-in */
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+main, .page { animation: pageIn .35s cubic-bezier(.22,1,.36,1); }
+
+/* Tap highlight */
+@media (hover: none) {
+  button:active, a:active { opacity: .75; }
+}
